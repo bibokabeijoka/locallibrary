@@ -10,10 +10,12 @@ const userArgs = process.argv.slice(2);
 const User = require("./models/user");
 const Author = require("./models/author");
 const Genre = require("./models/genre");
+const Book = require("./models/book");
 
 const genres = [];
 const authors = [];
 const users = [];
+const books = []
 
 const mongoose = require("mongoose");
 
@@ -40,6 +42,13 @@ async function genreCreate(index, name) {
   await genre.save();
   genres[index] = genre;
   console.log(`Added genre: ${name}`);
+}
+async function bookCreate(book_name){
+  const book = new Book({name: book_name});
+  await book.save();
+  books[index] = book;
+  console.log(`Added book: ${book_name}`)
+
 }
 
 async function authorCreate(index, first_name, family_name, d_birth, d_death) {
@@ -87,6 +96,17 @@ async function createAuthors() {
     authorCreate(3, "Bob", "Billings", false, false),
     authorCreate(4, "Jim", "Jones", "1971-12-16", false),
   ]);
+}
+
+async function createBooks() {
+  console.log("adding books");
+  await Promise.all ([
+    bookCreate(0,  "nao sei :("
+      //por algum motivo nao conectou no meu db :( but i tried 
+      
+
+    )
+  ])
 }
 
 async function createUsers() {

@@ -19,7 +19,7 @@ app.set('port', port);
 // Set up mongoose connection
 const mongoose = require("mongoose");
 
-const mongoDB = "mongodb+srv://bibokabeijoka:<23191923>@biboka.fgk7wxj.mongodb.net/?appName=biboka";
+const mongoDB = "mongodb+srv://biboka:<23191923>@biboka.fgk7wxj.mongodb.net/?appName=biboka";
 
 async function connectMongoose() {
   await mongoose.connect(mongoDB);
